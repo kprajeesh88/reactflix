@@ -116,3 +116,22 @@ body {
       }
     }
   }
+
+  //Pagination
+.pagination {
+  margin: 30px 0px;
+  @include flexbox(row, center, space-between, 10px);
+  button {
+    background: $amber;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+  p{
+    color:$amber;
+  }
+}
