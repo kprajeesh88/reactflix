@@ -135,3 +135,69 @@ body {
     color:$amber;
   }
 }
+
+//Movie Slider
+.movieSlider {
+  background: $stone800;
+  .splide__track {
+    padding: 0px 0px;
+  }
+  .splide__slide {
+    opacity: 0.7;
+    filter: grayscale(80);
+    transition: all 300ms;
+    // @include rounded;
+    .slideCaption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: clamp(1.75rem, 5.081vw + 0.435rem, 4.5rem);
+      width: 100%;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(12, 9, 7, 0) 90%
+      );
+      h2 {
+        @include fluidType();
+        color: $stone100;
+        transition: all 300ms;
+        transform: translateY(40px);
+        opacity: 0;
+        span {
+          backdrop-filter: blur(3);
+        }
+      }
+    }
+  }
+  .splide__slide.is-active {
+    opacity: 1;
+    filter: grayscale(0) saturate(1);
+    img {
+      opacity: 0.8;
+    }
+    .slideCaption {
+      h2 {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.loader{
+  display: flex;
+  padding: 2em 0;
+  justify-content: center;
+}
+
+.errorMessage{
+  border:1px solid crimson;
+  background: rgba(crimson, 0.1);
+  padding: 1em 0;
+  margin:1em auto;
+  text-align: center;
+  @include rounded;
+  color:white;
+}
