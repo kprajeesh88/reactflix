@@ -17,7 +17,8 @@ export const useFetch = (url, customParams = {}) =>{
         }
     }
 
-    let page = customParams.page;
+    const  {page , query} = customParams;
+
 
     useEffect(()=>{
         const fetchData = async () => {
@@ -30,8 +31,8 @@ export const useFetch = (url, customParams = {}) =>{
                 setLoading(false)
             }
         }
-        fetchData()
-    },[page]);
+        fetchData();
+    },[page, query, url]);
 
     return [data, loading, error]
 }

@@ -1,6 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useFetch } from "../Hooks/useFetch";
+
 export default function MovieSlider() {
   const [data, loading, error] = useFetch("movie/now_playing", { page: "" });
   const { results } = data;
