@@ -1,6 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useFetch } from "../Hooks/useFetch";
+import { Link } from "react-router-dom";
 
 export default function MovieSlider() {
   const [data, loading, error] = useFetch("movie/now_playing", { page: "" });
@@ -9,6 +10,7 @@ export default function MovieSlider() {
   let splideOptions = {
     heightRatio: 0.5,
     pagination: false,
+    autoplay: true,
     speed: 500,
     cover: true,
     padding: "15vw",
@@ -28,13 +30,16 @@ export default function MovieSlider() {
         {results?.map(({ backdrop_path, title, id }) => {
           return (
             <SplideSlide key={id}>
+              
               <img
                 src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
                 alt={title}
               />
+              <Link to={`/movie/${id}`}>
               <div className="slideCaption">
                 <h2>{title}</h2>
               </div>
+              </Link>
             </SplideSlide>
           );
         })}
